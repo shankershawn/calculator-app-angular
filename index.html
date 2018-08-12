@@ -1,23 +1,27 @@
 <html ng-app = "calculatorApp">
     <head>
+        <link rel="shortcut icon" type="image/png" href="favicon.ico"/>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
         <script src = calculator.js></script>
+        <title>Calculator</title>
     </head>
-    <h1>Calculator Application</h1>
-    <div ng-controller = "calculatorController as calcCtrl">
-        <p ng-if = "calcCtrl.errorMessage != ''" ng-bind = "calcCtrl.errorMessage" style = "color: red; font-weight: bold"></p>
-        <input type = "text" ng-model = "calcCtrl.input1" ng-keypress="calcCtrl.clearErrorMessage()" ></input>
-        <span ng-bind = "calcCtrl.operation" ></span>
-        <input type = "text" ng-model = "calcCtrl.input2" ng-keypress="calcCtrl.clearErrorMessage()" ></input>
-        <button ng-click = "calcCtrl.operate()" >=</button>
-        <span ng-bind = "calcCtrl.result" ></span>
-        <p>
-            <button ng-if = "calcCtrl.operation != '+'" ng-click = "calcCtrl.chooseOperation('+')">+</button>
-            <button ng-if = "calcCtrl.operation != '-'" ng-click = "calcCtrl.chooseOperation('-')">-</button>
-            <button ng-if = "calcCtrl.operation != '*'" ng-click = "calcCtrl.chooseOperation('*')">*</button>
-            <button ng-if = "calcCtrl.operation != '/'" ng-click = "calcCtrl.chooseOperation('/')">/</button>
-            <button ng-click="calcCtrl.reset()">Reset</button>
-        </p>
-    </div>
+    <body>
+            <div style="text-align: center" ng-controller = "calculatorController as calcCtrl">
+                <h1>Calculator Application</h1>
+                <p ng-if = "calcCtrl.errorMessage != ''" ng-bind = "calcCtrl.errorMessage" style = "color: red; font-weight: bold"></p>
+                <input type = "text" ng-model = "calcCtrl.input1" ng-keypress="calcCtrl.clearErrorMessage()" ></input>
+                <span ng-bind = "calcCtrl.operation" ></span>
+                <input type = "text" ng-model = "calcCtrl.input2" ng-keypress="calcCtrl.clearErrorMessage()" ></input>
+                <button ng-click = "calcCtrl.operate()" >=</button>
+                <span ng-bind = "calcCtrl.result" ></span>
+                <p>
+                    <button ng-if = "calcCtrl.operation != '+'" ng-click = "calcCtrl.chooseOperation('+')">+</button>
+                    <button ng-if = "calcCtrl.operation != '-'" ng-click = "calcCtrl.chooseOperation('-')">-</button>
+                    <button ng-if = "calcCtrl.operation != '*'" ng-click = "calcCtrl.chooseOperation('*')">*</button>
+                    <button ng-if = "calcCtrl.operation != '/'" ng-click = "calcCtrl.chooseOperation('/')">/</button>
+                    <button ng-click="calcCtrl.reset()">Reset</button>
+                </p>
+            </div>
+    </body>
 
 </html>

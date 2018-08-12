@@ -12,7 +12,8 @@ calculatorApp.controller("calculatorController", function(){
     }
 
     this.reset = function(){
-        this.input1 = this.input2 = this.operation = this.result = this.errorMessage = "";
+        this.input1 = this.input2 = this.operation = this.errorMessage = "";
+        this.result = "0";
     }
 
     this.operate = function(){
