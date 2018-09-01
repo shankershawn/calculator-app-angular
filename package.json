@@ -1,0 +1,23 @@
+{
+  "name": "calculator-app-angular",
+  "version": "1.0.0",
+  "description": "This is the calulator frontend",
+  "main": "index.html",
+  "scripts": {
+    "prestart": "npm install",
+    "start": "http-server -p5001"
+  },
+  "dependencies": {
+    "http-server": "0.11.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shankershawn/calculator-app-angular.git"
+  },
+  "author": "sganai",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shankershawn/calculator-app-angular/issues"
+  },
+  "homepage": "https://github.com/shankershawn/calculator-app-angular#readme"
+}
