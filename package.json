@@ -4,7 +4,6 @@
   "description": "This is the calulator frontend",
   "main": "index.html",
   "scripts": {
-    "prestart": "npm install",
     "start": "http-server -p5001"
   },
   "dependencies": {
