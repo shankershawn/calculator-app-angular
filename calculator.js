@@ -8,7 +8,7 @@ calculatorModule.controller("calculatorController", ["calculatorService", functi
             this.clearErrorMessage();
         }
 
-        this.clearErrorMessage = function(){
+    this.clearErrorMessage = function(){
             this.errorMessage = "";
         }
 
@@ -27,6 +27,7 @@ calculatorModule.controller("calculatorController", ["calculatorService", functi
             }else if(this.operation == "/" && Number(this.input2) == 0){
                     this.errorMessage = "You cannot divide by zero!";
             }else {
+                this.clearErrorMessage();
                 calculatorService.operate(this);
             }
         }

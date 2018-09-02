@@ -9,9 +9,9 @@
         <div style="text-align: center" ng-controller = "calculatorController as calcCtrl">
             <h1>Calculator Application</h1>
             <p ng-show = "calcCtrl.errorMessage != ''" ng-bind = "calcCtrl.errorMessage" style = "color: red; font-weight: bold"></p>
-            <input type = "text" ng-model = "calcCtrl.input1" ng-keypress="calcCtrl.clearErrorMessage()" ></input>
+            <input type = "text" ng-model = "calcCtrl.input1" ng-focus="calcCtrl.clearErrorMessage()" ></input>
             <span ng-bind = "calcCtrl.operation" ></span>
-            <input type = "text" ng-model = "calcCtrl.input2" ng-keypress="calcCtrl.clearErrorMessage()" ></input>
+            <input type = "text" ng-model = "calcCtrl.input2" ng-focus="calcCtrl.clearErrorMessage()" ></input>
             <button ng-click = "calcCtrl.operate()" >=</button>
             <span ng-bind = "calcCtrl.result" ></span>
             <p>
