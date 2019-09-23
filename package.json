@@ -4,7 +4,7 @@
   "description": "This is the calulator frontend",
   "main": "index.html",
   "scripts": {
-    "start": "http-server -p8080"
+    "start": "http-server"
   },
   "engines": {
     "node": "10.7.0"
