@@ -49,6 +49,7 @@ calculatorModule.service("calculatorService", ["$http", function($http){
             //serviceUrl = "http://calculator-env.akiirbjcaa.us-east-2.elasticbeanstalk.com/v1/calculator/division";
             serviceUrl = process.env.CALCULATOR_REST_DOMAIN + "/v1/calculator/division";
         }
+        console.log(process.env.CALCULATOR_REST_DOMAIN);
         if(serviceUrl != ""){
             $http({
                 url: serviceUrl,
