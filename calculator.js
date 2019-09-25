@@ -38,16 +38,16 @@ calculatorModule.service("calculatorService", ["$http", function($http){
         var serviceUrl = "";
         if(controllerScope.operation == "+"){
             //serviceUrl = "http://calculator-env.akiirbjcaa.us-east-2.elasticbeanstalk.com/v1/calculator/addition";
-            serviceUrl = process.env.CALCULATOR_REST_DOMAIN + "/v1/calculator/addition";
+            serviceUrl = "https://calculator-rest-service.herokuapp.com/v1/calculator/addition";
         }else if(controllerScope.operation == "-"){
             //serviceUrl = "http://calculator-env.akiirbjcaa.us-east-2.elasticbeanstalk.com/v1/calculator/subtraction";
-            serviceUrl = process.env.CALCULATOR_REST_DOMAIN + "/v1/calculator/subtraction";
+            serviceUrl = "https://calculator-rest-service.herokuapp.com/v1/calculator/subtraction";
         }else if(controllerScope.operation == "*"){
             //serviceUrl = "http://calculator-env.akiirbjcaa.us-east-2.elasticbeanstalk.com/v1/calculator/multiplication";
-            serviceUrl = process.env.CALCULATOR_REST_DOMAIN + "/v1/calculator/multiplication";
+            serviceUrl = "https://calculator-rest-service.herokuapp.com/v1/calculator/multiplication";
         }else if(controllerScope.operation == "/"){
             //serviceUrl = "http://calculator-env.akiirbjcaa.us-east-2.elasticbeanstalk.com/v1/calculator/division";
-            serviceUrl = process.env.CALCULATOR_REST_DOMAIN + "/v1/calculator/division";
+            serviceUrl = "https://calculator-rest-service.herokuapp.com/v1/calculator/division";
         }
         console.log(process.env.CALCULATOR_REST_DOMAIN);
         if(serviceUrl != ""){
