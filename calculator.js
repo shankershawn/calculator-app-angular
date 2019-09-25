@@ -35,42 +35,29 @@ calculatorModule.controller("calculatorController", ["calculatorService", functi
 
 calculatorModule.service("calculatorService", ["$http", function($http){
     this.operate = function(controllerScope){
-        var serviceUrl = "";
-        if(controllerScope.operation == "+"){
-            //serviceUrl = "http://calculator-env.akiirbjcaa.us-east-2.elasticbeanstalk.com/v1/calculator/addition";
-            serviceUrl = "https://calculator-rest-service.herokuapp.com/v1/calculator/addition";
-        }else if(controllerScope.operation == "-"){
-            //serviceUrl = "http://calculator-env.akiirbjcaa.us-east-2.elasticbeanstalk.com/v1/calculator/subtraction";
-            serviceUrl = "https://calculator-rest-service.herokuapp.com/v1/calculator/subtraction";
-        }else if(controllerScope.operation == "*"){
-            //serviceUrl = "http://calculator-env.akiirbjcaa.us-east-2.elasticbeanstalk.com/v1/calculator/multiplication";
-            serviceUrl = "https://calculator-rest-service.herokuapp.com/v1/calculator/multiplication";
-        }else if(controllerScope.operation == "/"){
-            //serviceUrl = "http://calculator-env.akiirbjcaa.us-east-2.elasticbeanstalk.com/v1/calculator/division";
-            serviceUrl = "https://calculator-rest-service.herokuapp.com/v1/calculator/division";
-        }
-        if(serviceUrl != ""){
-            $http({
-                url: serviceUrl,
-                method: "POST",
-                data: {
-                    "operand_1": controllerScope.input1,
-                    "operand_2": controllerScope.input2
-                },
-                headers: {"Authorization": "Basic c2hhbmthcnNhbjpjYXJjYXNz", "Content-Type": "application/json"}
-            }).then(function(response){
-                if(response != undefined){
+        $http({
+            url: "https://calculator-rest-service.herokuapp.com/v1/calculator/basic",
+            method: "POST",
+            data: {
+                "operand_1": controllerScope.input1,
+                "operand_2": controllerScope.input2,
+                "operator" : controllerScope.operation
+            },
+            headers: {"Authorization": "Basic c2hhbmthcnNhbjpjYXJjYXNz", "Content-Type": "application/json"}
+        }).then(function(response){
+            if(response != undefined){
+                if(response.data.message == null){
                     console.log(response.data);
                     controllerScope.result = response.data.result;
+                }else{
+                    controllerScope.result = "0";
+                    controllerScope.errorMessage = response.data.message;
                 }
-            }, function(response){
-                console.log("Service is temporarily unavailable.");
-                controllerScope.result = "0";
-                controllerScope.errorMessage = "Service is temporarily unavailable.";
-            });
-        }else{
+            }
+        }, function(response){
+            console.log("Service is temporarily unavailable.");
             controllerScope.result = "0";
-            controllerScope.errorMessage = "Invalid operand found!";
-        }
+            controllerScope.errorMessage = "Service is temporarily unavailable.";
+        });
     };
 }]);
