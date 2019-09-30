@@ -46,12 +46,11 @@ calculatorModule.service("calculatorService", ["$http", function($http){
             headers: {"Authorization": "Basic c2hhbmthcnNhbjpjYXJjYXNz", "Content-Type": "application/json"}
         }).then(function(response){
             if(response != undefined){
-                if(response.data.message == null){
-                    console.log(response.data);
-                    controllerScope.result = response.data.result;
-                }else{
-                    controllerScope.result = "0";
+                if(response.data.message == null || response.data.message == undefined){
                     controllerScope.errorMessage = response.data.message;
+                    controllerScope.result = "0";
+                }else{
+                    controllerScope.result = response.data.result;
                 }
             }
         }, function(response){
