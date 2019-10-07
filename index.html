@@ -3,17 +3,17 @@
         <link rel="shortcut icon" type="image/png" href="favicon.ico"/>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
         <script src = calculator.js></script>
-        <title>Calculator</title>
+        <title>Large Number Calculator</title>
     </head>
     <body style="font-family: sans-serif">
         <div style="text-align: center" ng-controller = "calculatorController as calcCtrl">
-            <h1>Calculator Application</h1>
+            <h1>Large Number Calculator</h1>
             <p ng-show = "calcCtrl.errorMessage != ''" ng-bind = "calcCtrl.errorMessage" style = "color: red; font-weight: bold"></p>
             <input type = "text" ng-model = "calcCtrl.input1" ng-focus="calcCtrl.clearErrorMessage()" ></input>
             <span ng-bind = "calcCtrl.operation" ></span>
             <input type = "text" ng-model = "calcCtrl.input2" ng-focus="calcCtrl.clearErrorMessage()" ></input>
             <button ng-click = "calcCtrl.operate()" >=</button>
-            <span ng-bind = "calcCtrl.result" ></span>
+            <span style="overflow-wrap: break-word;" ng-bind = "calcCtrl.result" ></span>
             <p>
                 <button ng-repeat="operand in calcCtrl.operands" ng-show = "calcCtrl.operation != operand"
                     ng-click = "calcCtrl.chooseOperation(operand)" >{{operand}}</button>

@@ -2,7 +2,7 @@ var calculatorModule = angular.module("calculatorApp", []);
 
 calculatorModule.controller("calculatorController", ["calculatorService", function(calculatorService){
         this.result = 0;
-        this.operands = ["+", "-", "*", "/"];
+        this.operands = ["+", "-", "*"];
         this.chooseOperation = function(button){
             this.operation = button;
             this.clearErrorMessage();
